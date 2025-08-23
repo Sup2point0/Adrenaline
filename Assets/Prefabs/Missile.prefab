@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileSpeed: 40
+  recoil: -25
   rigidBody: {fileID: 2119186553325382705}
   trailPrefab: {fileID: 4213589305084341041, guid: 4a70efc29688b9b4786096a7f5f59ed6, type: 3}
 --- !u!212 &5057785968763491862

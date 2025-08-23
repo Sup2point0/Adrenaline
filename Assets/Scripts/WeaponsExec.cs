@@ -13,6 +13,7 @@ public class WeaponsExec : MonoBehaviour
 
     [HideInInspector]
     public bool autofire = false;
+    public bool laser = false;
 
     private float fire_tick = 0;
 
@@ -29,21 +30,21 @@ public class WeaponsExec : MonoBehaviour
 
         if (fire_tick > autofireCooldown) {
             fire_tick -= autofireCooldown;
-            gameObject.transform.rotation = Utils.GetDirectionToMouse(source: player.transform.position);
+            transform.rotation = Utils.GetDirectionToMouse(source: player.transform.position);
             for (int i = 0; i < missilesCount; i++) {
-                Instantiate(missilePrefab, player.transform.position, gameObject.transform.rotation);
-                gameObject.transform.Rotate(new Vector3(0, 0, Random.Range(-fireSpread, fireSpread)));
+                Instantiate(missilePrefab, player.transform.position, transform.rotation);
+                transform.Rotate(new Vector3(0, 0, Random.Range(-fireSpread, fireSpread)));
             }
         }
     }
 
     public void FireSpreadMissiles()
     {
-        gameObject.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
+        transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
         
         for (int i = 0; i < spreadMissilesCount; i++) {
-            gameObject.transform.Rotate(new Vector3(0, 0, 360 / spreadMissilesCount));
-            Instantiate(missilePrefab, player.transform.position, gameObject.transform.rotation);
+            transform.Rotate(new Vector3(0, 0, 360 / spreadMissilesCount));
+            Instantiate(missilePrefab, player.transform.position, transform.rotation);
         }
     }
 }

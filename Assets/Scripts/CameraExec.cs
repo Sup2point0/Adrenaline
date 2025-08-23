@@ -20,9 +20,9 @@ public class CameraExec : MonoBehaviour
     void LateUpdate()
     {
         {
-            Vector3 delta = player.transform.position - gameObject.transform.position;
+            Vector3 delta = player.transform.position - transform.position;
             delta.z = -1;
-            gameObject.transform.position += delta / 32;
+            transform.position += delta / 32;
         } {
             var z = zoom + zoomScale * player.GetComponent<Rigidbody2D>().linearVelocity.magnitude;
             float delta = z - gameObject.GetComponent<Camera>().orthographicSize;

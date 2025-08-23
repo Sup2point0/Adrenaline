@@ -22,13 +22,14 @@ public class ObstacleScript : MonoBehaviour
 
     private SpriteRenderer sprite_renderer;
 
+    private float anim_hit = 0;
     private bool collided = false;
 
 
     void Start()
     {
         sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
-        gameObject.transform.localScale = Vector3.zero;
+        transform.localScale = Vector3.zero;
 
         health = Random.Range(1, maxInitialHealth);
         root_scale = rootScale;
@@ -36,10 +37,27 @@ public class ObstacleScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        var delta = new Vector3(scale, scale, scale) - gameObject.transform.localScale;
-        gameObject.transform.localScale += delta / 4;
+        var delta = new Vector3(scale, scale, scale) - transform.localScale;
+        transform.localScale += delta / 4;
 
         rigidBody.mass = health / 2;
+    }
+
+    void Update()
+    {
+        if (anim_hit > 0) {
+            anim_hit -= Time.deltaTime;
+        }
+
+        if (anim_hit < 0) {
+            anim_hit = 0;
+
+            if (collided) {
+                sprite_renderer.color = Color.yellow;
+            } else {
+                sprite_renderer.color = Color.green;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -51,25 +69,19 @@ public class ObstacleScript : MonoBehaviour
         }
     }
 
-    public async Awaitable Hit()
+    public void Hit()
     {
         if (sprite_renderer is null) return;
         
         health--;
         if (health < 1) {
             Destroy(gameObject);
+            return;
         }
 
-        gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
         sprite_renderer.color = Color.red;
         collided = true;
-
-        await Awaitable.NextFrameAsync();
-
-        if (collided) {
-            sprite_renderer.color = Color.yellow;
-        } else {
-            sprite_renderer.color = Color.green;
-        }
+        anim_hit = 0.04f;
     }
 }

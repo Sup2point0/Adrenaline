@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.rotation = Utils.GetDirectionToMouse(source: gameObject.transform.position);
+        transform.rotation = Utils.GetDirectionToMouse(source: transform.position);
     }
 
     #endregion
@@ -37,9 +37,9 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator AsyncPop()
     {
-        gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         yield return new WaitForSeconds(0.5f);
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     #endregion

@@ -512,11 +512,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autofireCooldown: 0.1
   fireSpread: 15
-  missilesCount: 16
-  spreadMissilesCount: 8
+  missilesCount: 1
+  spreadMissilesCount: 24
   player: {fileID: 1661270945}
   missilePrefab: {fileID: 6588277910331147559, guid: f818a0d9a1c016642900a05d1022d874, type: 3}
   autofire: 0
+  laser: 0
 --- !u!4 &901975563
 Transform:
   m_ObjectHideFlags: 0

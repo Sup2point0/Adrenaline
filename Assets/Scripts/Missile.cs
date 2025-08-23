@@ -4,6 +4,7 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour
 {
     public float missileSpeed;
+    public float recoil;
 
     public Rigidbody2D rigidBody;
     public GameObject trailPrefab;
@@ -13,27 +14,29 @@ public class MissileScript : MonoBehaviour
 
     void Start()
     {
-        gameObject.transform.position += gameObject.transform.forward * 1;
+        transform.position += transform.forward * 1;
 
-        var player = GameObject.FindWithTag("Player");
-        player.GetComponent<Rigidbody2D>().AddRelativeForceY(-25);
+        var dir = Mathf.PI * (transform.rotation.eulerAngles.z + 90) / 180;
+        GameObject.FindWithTag("Player")
+            .GetComponent<Rigidbody2D>()
+            .AddForce(recoil * new Vector2(Mathf.Cos(dir), Mathf.Sin(dir)));
 
         trail = Instantiate(trailPrefab);
-        trail.transform.position = gameObject.transform.position;
+        trail.transform.position = transform.position;
     }
 
     void FixedUpdate()
     {
         rigidBody.AddRelativeForce(new Vector2(0, missileSpeed));
-        trail.transform.position = gameObject.transform.position;
+        trail.transform.position = transform.position;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Obstacle")) {
-            collision.gameObject.GetComponent<ObstacleScript>().Hit();
             Destroy(gameObject);
             Destroy(trail);
+            collision.gameObject.GetComponent<ObstacleScript>().Hit();
         }
     }
 }

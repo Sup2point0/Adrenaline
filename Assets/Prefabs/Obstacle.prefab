@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313b3a35e9076474e9af5d5f23bf549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxInitialHealth: 50
+  maxInitialHealth: 20
   rootScale: 1
   healthScale: 0.1
   rigidBody: {fileID: 4511767981680616192}
