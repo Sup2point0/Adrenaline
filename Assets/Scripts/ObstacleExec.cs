@@ -4,6 +4,7 @@ public class ObstacleExec : MonoBehaviour
 {
     [Header("Obstacles Configuration")]
     public int initialObstacles;
+    public int spawnCooldown;
     public float maxSpread;
     
     [Header("Unity Configuration")]
@@ -24,7 +25,7 @@ public class ObstacleExec : MonoBehaviour
     {
         tick += Time.deltaTime;
 
-        if (tick > 3) {
+        if (tick > spawnCooldown) {
             Spawn();
             tick = 0;
         }

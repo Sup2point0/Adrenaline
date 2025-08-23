@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0f5c1cb928194094190e9b3cfe1c570c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialObstacles: 100
+  spawnCooldown: 1
   maxSpread: 25
   obstaclePrefab: {fileID: 1519779969525592504, guid: 729bef998107a784ca34085dd3ad8ae8, type: 3}
   player: {fileID: 1661270945}
@@ -509,7 +510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd8e179e1f5f184fad0cc9da9deb1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autofireCooldown: 0.08
+  autofireCooldown: 0.1
+  fireSpread: 15
+  missilesCount: 16
   spreadMissilesCount: 8
   player: {fileID: 1661270945}
   missilePrefab: {fileID: 6588277910331147559, guid: f818a0d9a1c016642900a05d1022d874, type: 3}
@@ -544,7 +547,7 @@ GameObject:
   - component: {fileID: 1661270947}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

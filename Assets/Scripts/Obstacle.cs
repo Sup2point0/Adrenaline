@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -50,7 +51,7 @@ public class ObstacleScript : MonoBehaviour
         }
     }
 
-    public void Hit()
+    public async Awaitable Hit()
     {
         if (sprite_renderer is null) return;
         
@@ -59,13 +60,16 @@ public class ObstacleScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+        gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        sprite_renderer.color = Color.red;
+        collided = true;
+
+        await Awaitable.NextFrameAsync();
+
         if (collided) {
             sprite_renderer.color = Color.yellow;
         } else {
             sprite_renderer.color = Color.green;
-            collided = true;
         }
-
-        gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
     }
 }

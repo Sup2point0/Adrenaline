@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb7a6268a84c7e4daa5194322f113de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileSpeed: 20
+  missileSpeed: 40
   rigidBody: {fileID: 2119186553325382705}
+  trailPrefab: {fileID: 4213589305084341041, guid: 4a70efc29688b9b4786096a7f5f59ed6, type: 3}
 --- !u!212 &5057785968763491862
 SpriteRenderer:
   m_ObjectHideFlags: 0
