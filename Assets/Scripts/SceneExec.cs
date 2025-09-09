@@ -57,6 +57,11 @@ public class SceneExec : MonoBehaviour
         weaponsExec.FireSpreadMissiles();
     }
 
+    void OnLaser(InputValue value)
+    {
+        weaponsExec.laser = (value.Get<float>() > 0);
+    }
+
     void OnZoom(InputValue value)
     {
         var val = value.Get<float>();

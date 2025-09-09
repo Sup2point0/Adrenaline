@@ -69,6 +69,11 @@ public class ObstacleScript : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log($"collision = {collision}");
+    }
+
     public void Hit()
     {
         if (sprite_renderer is null) return;

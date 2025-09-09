@@ -21,7 +21,7 @@ public class CameraExec : MonoBehaviour
     {
         {
             Vector3 delta = player.transform.position - transform.position;
-            delta.z = -1;
+            delta.z = 0;
             transform.position += delta / 32;
         } {
             var z = zoom + zoomScale * player.GetComponent<Rigidbody2D>().linearVelocity.magnitude;
