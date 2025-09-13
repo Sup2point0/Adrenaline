@@ -1,0 +1,13 @@
+Button {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0);
+    width: auto;
+    min-width: 150px;
+    color: rgb(255, 255, 255);
+}
+
+Button:hover {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: var(--col-prot);
+}

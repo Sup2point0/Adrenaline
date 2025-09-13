@@ -1,0 +1,4 @@
+:root {
+    --col-prot: rgb(87, 255, 173);
+    -unity-font-definition: url("project://database/Assets/Fonts/Abel.ttf?fileID=12800000&guid=dc5b0927f097fcb47860c84c0623d009&type=3#Abel");
+}

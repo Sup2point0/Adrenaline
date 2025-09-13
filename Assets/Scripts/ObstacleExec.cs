@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class ObstacleExec : MonoBehaviour
 {
     [Header("Obstacles Configuration")]

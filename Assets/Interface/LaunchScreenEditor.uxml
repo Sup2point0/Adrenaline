@@ -1,0 +1,15 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Interface/Styles/essence.uss?fileID=7433441132597879392&amp;guid=252409f783d00f949830e8bf61dfa959&amp;type=3#essence" />
+    <Style src="project://database/Assets/Interface/Styles/buttons.uss?fileID=7433441132597879392&amp;guid=5b3a19270c0b9f04c936fc6a9f24fb4d&amp;type=3#buttons" />
+    <engine:VisualElement name="Vertical-Layout" style="background-color: rgb(0, 0, 0); justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <engine:VisualElement name="Content-Container" style="flex-grow: 1; max-height: 450px;">
+            <engine:VisualElement name="Title-Container" style="flex-grow: 1; justify-content: center;">
+                <engine:Label text="ADRENALINE" style="-unity-text-align: upper-center; font-size: 100px; color: rgb(87, 255, 173);" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Buttons-Container" style="flex-grow: 1; height: auto; justify-content: center; align-items: center;">
+                <engine:Button text="PLAY" name="Play" style="width: auto; font-size: 50px; min-width: 300px;" />
+                <engine:Button text="CREDITS" name="Credits" style="width: auto; font-size: 50px; min-width: 300px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
